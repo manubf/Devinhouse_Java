@@ -1,14 +1,18 @@
 package funcionarios;
 
 public class Funcionario {
-	String nome;
-	String sobrenome;
-	double salario;
+	protected String nome;
+	protected String sobrenome;
+	protected String cpf;
+	protected double salario;
+	protected double bonificacao;
+	protected double salarioComBonus;
 	
-	Funcionario(String nome, String sobrenome, double salario){
+	Funcionario(String nome, String sobrenome, double salario, String cpf ){
 		this.nome = nome;
 		this.sobrenome = sobrenome;
 		this.salario = salario;
+		this.cpf = cpf;
 	}
 
 	public String getNome() {
@@ -33,6 +37,27 @@ public class Funcionario {
 
 	public void setSalario(double salario) {
 		this.salario = salario;
+	}
+	
+		
+	public double geraBonificacao() {
+		return this.bonificacao = getSalario()*0.10;
+	}
+
+	public double getSalarioComBonus() {
+		return this.salarioComBonus;
+	}
+
+	public void setSalarioComBonus(double salarioComBonus) {
+		this.salarioComBonus = getSalario() + geraBonificacao() ;
+	}
+
+	public String getCpf() {
+		return cpf;
+	}
+	
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
 	}
 
 	public double setAumento(double aumentoPercentil) {
